@@ -17,5 +17,7 @@ mongoose.connect(process.env.DB_CONNECT)
 app.use('/', TodoItemRoute);
 
 
-
+app.get('/', (req, res) => {
+    res.send('Running Task Management Server');
+})
 app.listen(PORT, () => console.log('Server Connected'));
