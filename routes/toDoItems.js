@@ -28,6 +28,19 @@ router.get('/api/items', async (req, res) => {
     }
 })
 
+//get to-do item from db
+router.get('/api/item/:id', async (req, res) => {
+    try {
+        // const id = req.params.id;
+        // const query = { _id: ObjectId(id) };
+        const singleTodoItems = await todoItemsModel.findOne(req.params.id);
+        res.status(200).json(singleTodoItems)
+    }
+    catch (err) {
+        res.json(err);
+    }
+})
+
 //update to-do items
 router.put('/api/item/:id', async (req, res) => {
     try {
