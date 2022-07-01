@@ -33,7 +33,7 @@ router.get('/api/item/:id', async (req, res) => {
     try {
         // const id = req.params.id;
         // const query = { _id: ObjectId(id) };
-        const singleTodoItems = await todoItemsModel.findOne(req.params.id);
+        const singleTodoItems = await todoItemsModel.findById(req.params.id);
         res.status(200).json(singleTodoItems)
     }
     catch (err) {
